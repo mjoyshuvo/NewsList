@@ -22,7 +22,6 @@
 </template>
 
 <script>
-import axios from "axios";
 export default {
   name: "newslist",
   props: ["source"],
@@ -33,8 +32,7 @@ export default {
   },
   methods: {
     updateSource: function(source) {
-        console.log("source", source)
-      axios
+      this.$http
         .get(
           "https://newsapi.org/v1/articles?source=" +
             source +
@@ -51,7 +49,7 @@ export default {
   watch: {
     source: function(val) {
       this.updateSource(val);
-    }
+    },
   }
 };
 </script>

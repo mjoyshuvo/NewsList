@@ -4,7 +4,7 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import axios from 'axios';
-
+Vue.prototype.$http = axios;
 // var VueMaterial = require('vue-material');
 // import 'vue-material/dist/vue-material.css';
 // Vue.use(VueMaterial);

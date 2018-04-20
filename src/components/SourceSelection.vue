@@ -2,8 +2,8 @@
   <div class="sourceselection">
     <div>
       <div class="jumbotron">
-        <h2><i class="far fa-newspaper"></i>&nbsp;News List</h2>
-        <h4>Select News Source</h4><br>
+        <h2><i class="far fa-newspaper" style="color:teal"></i>&nbsp;News List</h2>
+        <h6>Select News Source</h6><br>
         <select class="form-control" v-on:change="sourceChanged">
           <option value="">Please select news source ...</option>
           <option v-for="source in sources" v-bind:value="source.id">{{source.name}}</option>
@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import axios from "axios";
 export default {
   name: 'sourceselection',
   data () {
@@ -38,7 +37,7 @@ export default {
     }
   },
   created: function () {
-    axios.get('https://newsapi.org/v1/sources?language=en&apiKey=0753f130598040e88c087c1b2169af44')
+    this.$http.get('https://newsapi.org/v1/sources?language=en&apiKey=0753f130598040e88c087c1b2169af44')
       .then(response => {
         this.sources = response.data.sources;
       });
